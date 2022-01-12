@@ -1,3 +1,4 @@
+#Assignment Name: Tic-Tac-Toe! Author: Courtney M. Christensen --> Github Name: Tauriel1202
 
 turnCount = 1
 spaces = [1,2,3,4,5,6,7,8,9]
