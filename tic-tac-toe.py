@@ -9,15 +9,21 @@ def board():
   print(f'{spaces[0]}|{spaces[1]}|{spaces[2]}\n-+-+-\n{spaces[3]}|{spaces[4]}|{spaces[5]}\n-+-+-\n{spaces[6]}|{spaces[7]}|{spaces[8]}')
 
 def turn(turnCount):
-  ask = int(input('Which tile would you like? Please input a number: '))
+  ask = int(input('Which tile would you like? Please input a number: '))-1
 
-  if turnCount in odd:
-    spaces[ask-1] = 'x'
+  if type(spaces[ask]) == str:
+    print('This tile is already taken. Please choose an open tile. ')
+    ask = int(input('Which tile would you like? Please input a number: '))-1
 
-  elif turnCount in even:
-    spaces[ask-1] = 'o'
+  else:
+    if turnCount in odd:
+      spaces[ask] = 'x'
 
+    elif turnCount in even:
+      spaces[ask] = 'o'
+    
 def player(turnCount):
+  print(f'Turn: {turnCount}')
   if turnCount in odd:
     print("Player X's Turn!")
   
@@ -67,6 +73,8 @@ def main():
     turn(turnCount)
     turnCount += 1
     win()
+  else:
+    print('It is a draw!')
 
 if __name__ == '__main__':
   main()
